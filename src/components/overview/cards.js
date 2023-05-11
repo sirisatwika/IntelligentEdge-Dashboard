@@ -48,7 +48,7 @@ function CardBlock() {
 	
 	let [onlinec, setOnlinec] = useState([]);
 	useEffect(()=>{
-	axios.get('http://localhost:5000/gatewaydata/api/v1/gateway/count/online')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/count/online')
 	.then(response =>{
 	console.log(response);
 	setOnlinec(response.data);
