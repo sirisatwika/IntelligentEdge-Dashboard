@@ -27,7 +27,7 @@ function GatewayDataTable() {
 
 	let [val, setVal] = useState([]);
 	useEffect(()=>{
-	axios.get('http://localhost:5000/api/v1/gateway/name/getgatewaydetails/all')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/name/getgatewaydetails/all')
 	.then(response =>{
 	console.log(response);
 	setVal(response.data);

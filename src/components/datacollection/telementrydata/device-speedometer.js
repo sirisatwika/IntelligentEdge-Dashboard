@@ -38,7 +38,7 @@ let [telemetryData, setTelemetryData] = useState([]);
   const [devices, setDevices] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-    axios.get(`http://localhost:5000/api/v1/gateway/name/getdevicenames/all`)
+    axios.get(`http://localhost:5000/gatewaydata/api/v1/name/getdevicenames/all`)
 		.then(response =>{
 		//console.log(response.data);
 		setDevices(response.data); 
@@ -56,7 +56,7 @@ let [telemetryData, setTelemetryData] = useState([]);
     setdevice(event.target.value);
     const fetchData = async () => {
     setTelemetryData([]);
-    axios.get(`http://localhost:5000/api/v1/gateway/telemetrydata/${event.target.value}`)
+    axios.get(`http://localhost:5000/gatewaydata/api/v1/telemetrydata/${event.target.value}`)
 	.then((response) => {
                     console.log(response.data);
                    let data = [];
@@ -77,7 +77,7 @@ let [telemetryData, setTelemetryData] = useState([]);
                     let value2 = "";
                    let data2= [];
                    setTelemetryData([]);
-                    axios.get(`http://localhost:5000/api/v1/gateway/telemetrydata/${sd}`)
+                    axios.get(`http://localhost:5000/gatewaydata/api/v1/telemetrydata/${sd}`)
                     .then((response) => {
                     console.log(response.data);
                     let datares2 = response.data;
@@ -111,7 +111,7 @@ let [telemetryData, setTelemetryData] = useState([]);
                     let value = "";
                    let data= [];
                    setTelemetryData([]);
-                    axios.get(`http://localhost:5000/api/v1/gateway/telemetrydata/${selectdevice}`)
+                    axios.get(`http://localhost:5000/gatewaydata/api/v1/telemetrydata/${selectdevice}`)
                     .then((response) => {
                     console.log(response.data);
                     let datares = response.data;

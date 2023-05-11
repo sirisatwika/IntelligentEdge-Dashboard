@@ -7,7 +7,7 @@ function OverviewDeviceprotocol(){
 	let [key, setKey] = useState([]);
 	let [val, setVal] = useState([]);
 	useEffect(()=>{
-	axios.get('http://localhost:5000/api/v1/gateway/count/gatewaywrtservice')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/count/gatewaywrtservice')
 	.then(response =>{
 	console.log(response);
 	setKey(Object.keys(response.data));

@@ -14,7 +14,7 @@ function LineChart(props) {
   const [devices, setDevices] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-    axios.get(`http://localhost:5000/api/v1/gateway/name/getdevicenames/all`)
+    axios.get(`http://localhost:5000/gatewaydata/api/v1/name/getdevicenames/all`)
 		.then(response =>{
 		//console.log(response.data);
 		setDevices(response.data); 
@@ -29,7 +29,7 @@ function LineChart(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-    axios.get(`http://localhost:5000/api/v1/gateway/data/linegraph/${selectdevice}`)
+    axios.get(`http://localhost:5000/gatewaydata/api/v1/data/linegraph/${selectdevice}`)
 		.then(response =>{
 		//console.log(response.data);
 		setData(response.data); 
@@ -45,7 +45,7 @@ function LineChart(props) {
 
      
     const fetchData = async () => {
-    axios.get(`http://localhost:5000/api/v1/gateway/data/linegraph/${selectdevice}`)
+    axios.get(`http://localhost:5000/gatewaydata/api/v1/data/linegraph/${selectdevice}`)
 		.then(response =>{
 		//console.log(response.data);
 		setData(response.data); 

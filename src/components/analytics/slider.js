@@ -44,7 +44,7 @@ function SliderSizes() {
    const [devices, setDevices] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-    axios.get(`http://localhost:5000/api/v1/gateway/name/getdevicenames/all`)
+    axios.get(`http://localhost:5000/gatewaydata/api/v1/name/getdevicenames/all`)
 		.then(response =>{
 		//console.log(response.data);
 		setDevices(response.data); 
@@ -62,7 +62,7 @@ function SliderSizes() {
   
     const fetchData = async () => {
     let ch =[];
-	axios.get(`http://localhost:5000/api/v1/gateway/data/minmax/${event.target.value}`)
+	axios.get(`http://localhost:5000/gatewaydata/api/v1/data/minmax/${event.target.value}`)
 		    .then((response) => {
 		      console.log(response.data);
 		      const resvalues = Object.values(response.data);
@@ -78,7 +78,7 @@ function SliderSizes() {
 	useEffect(() => {
     const minmaxval = () =>{
     	let ch =[];
-	axios.get(`http://localhost:5000/api/v1/gateway/data/minmax/${selectdevice}`)
+	axios.get(`http://localhost:5000/gatewaydata/api/v1/data/minmax/${selectdevice}`)
 		    .then((response) => {
 		      console.log(response.data);
 		      const resvalues = Object.values(response.data);

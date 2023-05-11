@@ -17,7 +17,7 @@ import DevicesOtherIcon from '@mui/icons-material/DevicesOther';
 function CardBlock() {
 	let [tcnt, setTcnt] = useState([]);
 	useEffect(()=>{
-	axios.get('http://172.30.226.165:5000/api/v1/gateway/count/total')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/count/total')
 	.then(response =>{
 	console.log(response);
 	setTcnt(response.data);
@@ -27,7 +27,7 @@ function CardBlock() {
 	
 	let [prov, setProv] = useState([]);
 	useEffect(()=>{
-	axios.get('http://172.30.226.165:5000/api/v1/gateway/count/provisioned')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/count/provisioned')
 	.then(response =>{
 	console.log(response);
 	setProv(response.data);
@@ -37,7 +37,7 @@ function CardBlock() {
 	
 	let [unprov, setUnprov] = useState([]);
 	useEffect(()=>{
-	axios.get('http://172.30.226.165:5000/api/v1/gateway/count/unprovisioned')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/count/unprovisioned')
 	.then(response =>{
 	console.log(response);
 	setUnprov(response.data);
@@ -47,7 +47,7 @@ function CardBlock() {
 	
 	let [onlinec, setOnlinec] = useState([]);
 	useEffect(()=>{
-	axios.get('http://172.30.226.165:5000/api/v1/gateway/count/online')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/count/online')
 	.then(response =>{
 	console.log(response);
 	setOnlinec(response.data);
@@ -57,7 +57,7 @@ function CardBlock() {
 	
 	let [offlinec, setOfflinec] = useState([]);
 	useEffect(()=>{
-	axios.get('http://172.30.226.165:5000/api/v1/gateway/count/offline')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/count/offline')
 	.then(response =>{
 	console.log(response);
 	setOfflinec(response.data);
@@ -67,7 +67,7 @@ function CardBlock() {
 	
 	let [activec, setActivec] = useState([]);
 	useEffect(()=>{
-	axios.get('http://172.30.226.165:5000/api/v1/gateway/count/active')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/count/active')
 	.then(response =>{
 	console.log(response);
 	setActivec(response.data);
@@ -77,7 +77,7 @@ function CardBlock() {
 	
 	let [inactivec, setInactivec] = useState([]);
 	useEffect(()=>{
-	axios.get('http://172.30.226.165:5000/api/v1/gateway/count/inactive')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/count/inactive')
 	.then(response =>{
 	console.log(response);
 	setInactivec(response.data);

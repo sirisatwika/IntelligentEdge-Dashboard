@@ -35,7 +35,7 @@ function ConfigIOTTable() {
 	
 	let [val, setVal] = useState([]);
 	useEffect(()=>{
-	axios.get('http://localhost:5000/api/v1/gateway/name/getdevicedetailsconfig/all')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/name/getdevicedetailsconfig/all')
 	.then(response =>{
 	console.log(response);
 	setVal(response.data);

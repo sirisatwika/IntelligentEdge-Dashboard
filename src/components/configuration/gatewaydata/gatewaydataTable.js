@@ -38,7 +38,7 @@ function ConfigurationTable() {
 	
 	let [val, setVal] = useState([]);
 	useEffect(()=>{
-	axios.get('http://localhost:5000/api/v1/gateway/name/getgatewaydetailsconfig/all')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/name/getgatewaydetailsconfig/all')
 	.then(response =>{
 	console.log(response);
 	setVal(response.data);
@@ -46,7 +46,50 @@ function ConfigurationTable() {
 	.catch(console.error);
 	},[]);
 
-	
+	const [renew,setRenew] = useState(null);
+    const [deprov,setDeprov] = useState(null);
+    const [devicename,setDevicename] = useState('');
+    const fetchDataRenew = async() =>{
+       try{
+         const response = await axios.get(`http://localhost:5000/provision/api/v1/gateway/renew/${devicename}`);
+         return response.data;
+       }catch(error){
+         console.error(error);
+         throw new Error("Failed!");
+       }
+    }
+    const handleClickRenew = async() => {
+     try {
+       const result = await fetchDataRenew();
+       setRenew(result);
+       toast.success(result);
+       }catch(error){
+       toast.error(error.message);
+      }
+      }
+      
+      const fetchDataDeprov = async() =>{
+       try{
+         const response = await axios.delete(`http://localhost:5000/provision/api/v1/gateway/deprovision/${devicename}`);
+         return response.data;
+       }catch(error){
+         console.error(error);
+         throw new Error("Failed!");
+       }
+    }
+    const handleClickDeprov = async() => {
+     try {
+       const result = await fetchDataDeprov();
+       setDeprov(result);
+       toast.success(result);
+       }catch(error){
+       toast.error(error.message);
+      }
+      }
+
+
+
+
     //os_Action action dropdown
     const [state, setState] = useState({ value: "Select Action" });
     function handleChange(event) {
@@ -171,9 +214,12 @@ function ConfigurationTable() {
                 filter: false,
                 customBodyRender: (value) => {
                     return (
-                        <button className="addbtn">
+                       <div>
+                        <button className="addbtn" onClick={handleClickRenew}>
                             Renew
                         </button>
+                        <ToastContainer />
+                        </div>
                     )
                 }
             },
@@ -184,9 +230,12 @@ function ConfigurationTable() {
                 filter: false,
                 customBodyRender: (value) => {
                     return (
-                        <button className="addbtn">
+                        <div>
+                        <button className="addbtn" onClick={handleClickDeprov}>
                             Deprovision
                         </button>
+                        <ToastContainer />
+                        </div>
                     )
                 }
             },

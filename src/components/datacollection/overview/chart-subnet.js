@@ -7,7 +7,7 @@ function Subnets(){
 	
 	let [val, setVal] = useState([]);
 	useEffect(()=>{
-	axios.get('http://localhost:5000/api/v1/gateway/name/getdevicenames')
+	axios.get('http://localhost:5000/gatewaydata/api/v1/name/getdevicenames')
 	.then(response =>{
 	console.log(response);
 	const gatewaydata = response.data;
